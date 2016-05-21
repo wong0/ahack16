@@ -1,5 +1,6 @@
 package angelhack.com.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,9 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -15,11 +19,22 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import angelhack.com.model.Employee;
+
 public class MainActivity extends AppCompatActivity
         implements SearchView.OnQueryTextListener, OnMapReadyCallback {
     private static final String TAG = "MainActivity";
 
     GoogleMap mMap;
+
+    ListView listView;
+
+    List<Employee> employees;
+
+    NearbyPeopleAdapter nearbyPeopleAdapter;
 
     public static final String SEARCH_KEYWORD = "SEARCH_KEYWORD";
     public String searchKeyword = "";
@@ -34,10 +49,34 @@ public class MainActivity extends AppCompatActivity
             searchKeyword = bundle.getString(SEARCH_KEYWORD);
         }
 
+        listView = (ListView) findViewById(R.id.lvNearby);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        employees = new ArrayList<>();
+        employees.add(new Employee(R.drawable.profile_eugene, "Gene", 120, 10));
+        employees.add(new Employee(R.drawable.profile_jimmy, "Jimmy", 120, 110));
+        employees.add(new Employee(R.drawable.profile_stevo, "Stevo", 20, 210));
+        employees.add(new Employee(R.drawable.profile_victor, "Victor", 20, 10));
+
+
+        nearbyPeopleAdapter = new NearbyPeopleAdapter(MainActivity.this, employees);
+
+        listView.setAdapter(nearbyPeopleAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "onItemClick: " + position);
+
+                Intent intent = new Intent(MainActivity.this, EmployeeProfileActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -57,7 +96,12 @@ public class MainActivity extends AppCompatActivity
     public boolean onQueryTextSubmit(String query) {
         Log.i(TAG, "onQueryTextSubmit: " + query);
 
+        employees.add(new Employee(R.drawable.profile_eugene, "Gene", 120, 10));
+        employees.add(new Employee(R.drawable.profile_jimmy, "Jimmy", 120, 110));
+        employees.add(new Employee(R.drawable.profile_stevo, "Stevo", 20, 210));
+        employees.add(new Employee(R.drawable.profile_victor, "Victor", 20, 10));
 
+        nearbyPeopleAdapter.notifyDataSetChanged();
 
         return false;
     }
@@ -65,6 +109,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onQueryTextChange(String newText) {
         Log.i(TAG, "onQueryTextChange: " + newText);
+
+        employees.add(new Employee(R.drawable.profile_stevo, "Stevo", 20, 210));
+        employees.add(new Employee(R.drawable.profile_victor, "Victor", 20, 10));
+
+        nearbyPeopleAdapter.notifyDataSetChanged();
 
         return false;
     }
@@ -83,7 +132,7 @@ public class MainActivity extends AppCompatActivity
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
+        LatLng sydney = new LatLng(-22, 114);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker!"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
