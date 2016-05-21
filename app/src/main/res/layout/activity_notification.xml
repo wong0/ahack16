@@ -3,11 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/orange"
     tools:context="angelhack.com.myapplication.NotificationActivity">
 
     <ImageView
-        android:layout_width="match_parent"
+       android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="0dp"
+        android:layout_alignParentTop="true"
         android:src="@drawable/notification_manager_page"/>
 
 </RelativeLayout>

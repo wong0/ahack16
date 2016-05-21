@@ -9,7 +9,6 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -51,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
 
                     // Perform action on key press
-                    Toast.makeText(LoginActivity.this, ((EditText)v).getText(), Toast.LENGTH_SHORT).show();
+
                     return true;
                 }
                 return false;
