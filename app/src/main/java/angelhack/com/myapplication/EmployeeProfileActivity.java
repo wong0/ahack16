@@ -10,6 +10,9 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_profile);
 
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().hide();
+        }
 
     }
 }

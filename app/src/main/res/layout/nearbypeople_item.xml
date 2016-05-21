@@ -8,8 +8,6 @@
         android:id="@+id/ivAvatar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
         android:src="@drawable/profile_eugene"/>
 
     <RelativeLayout
@@ -36,7 +34,7 @@
 
             <ImageView
                 android:id="@+id/ivThumbs"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/appreciation"
                 android:layout_width="20dp"
                 android:layout_height="20dp" />
 
@@ -47,7 +45,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_toRightOf="@id/ivThumbs"
                 android:layout_centerVertical="true"
-                android:text="120" />
+                android:text="120 " />
 
         </RelativeLayout>
 
@@ -64,7 +62,7 @@
 
             <ImageView
                 android:id="@+id/ivSaves"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/help"
                 android:layout_width="20dp"
                 android:layout_height="20dp" />
 
@@ -75,7 +73,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_toRightOf="@id/ivSaves"
                 android:layout_centerVertical="true"
-                android:text="120" />
+                android:text="120 " />
 
         </RelativeLayout>
 

@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-22, 114);
+        LatLng sydney = new LatLng(-22.3099203, 114.22460790000002);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker!"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }

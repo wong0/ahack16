@@ -53,8 +53,8 @@ public class NearbyPeopleAdapter extends BaseAdapter {
         tvName.setText(employees.get(position).name);
         ivAvatar.setImageDrawable(context.getResources().getDrawable(employees.get(position).avatar));
 
-        tvThumbs.setText(employees.get(position).thumbs);
-        tvSaves.setText(employees.get(position).saves);
+        tvThumbs.setText(String.valueOf(employees.get(position).thumbs));
+        tvSaves.setText(String.valueOf(employees.get(position).saves));
 
         return row;
     }
