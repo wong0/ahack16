@@ -68,7 +68,9 @@
             android:name=".InboxActivity"
             android:label="@string/title_activity_inbox"
             android:screenOrientation="portrait" />
-        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".NotificationActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

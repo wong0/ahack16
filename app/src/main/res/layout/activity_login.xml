@@ -12,6 +12,13 @@
         <!--android:text="Hello World!" />-->
 
     <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/home"/>
+    <ImageView
         android:id="@+id/ivPersonalLogo"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -19,15 +26,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
+        android:elevation="5dp"
         android:src="@drawable/profile_allen"/>
-
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/helping_hand"/>
-
     <TextView
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
