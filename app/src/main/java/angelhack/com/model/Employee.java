@@ -13,10 +13,13 @@ public class Employee {
 
     public int saves;
 
-    public Employee(int avatar, String name, int thumbs, int saves) {
+    public String dist;
+
+    public Employee(int avatar, String name, int thumbs, int saves, String dist) {
         this.avatar = avatar;
         this.name = name;
         this.thumbs = thumbs;
         this.saves = saves;
+        this.dist = dist;
     }
 }

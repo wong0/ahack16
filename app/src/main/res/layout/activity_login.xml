@@ -45,8 +45,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/tv1"
+        android:inputType="text"
+        android:imeOptions="actionSend"
         android:gravity="center_horizontal"
-        android:text="type something"/>
+        android:hint="type something"/>
 
     <Button
         android:id="@+id/btnRequest"

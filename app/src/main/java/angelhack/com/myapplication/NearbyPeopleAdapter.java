@@ -49,12 +49,16 @@ public class NearbyPeopleAdapter extends BaseAdapter {
         ImageView ivThumbs = (ImageView) row.findViewById(R.id.ivThumbs);
         TextView tvThumbs = (TextView) row.findViewById(R.id.tvThumbs);
         TextView tvSaves = (TextView) row.findViewById(R.id.tvSaves);
+        TextView tvDist = (TextView) row.findViewById(R.id.tvDist);
+
 
         tvName.setText(employees.get(position).name);
         ivAvatar.setImageDrawable(context.getResources().getDrawable(employees.get(position).avatar));
 
         tvThumbs.setText(String.valueOf(employees.get(position).thumbs));
         tvSaves.setText(String.valueOf(employees.get(position).saves));
+        tvDist.setText(String.valueOf(employees.get(position).dist));
+
 
         return row;
     }
